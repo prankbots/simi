@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-import LINETCR
-from LINETCR.lib.curve.ttypes import *
+import PRANKBOTS
+from PRANKBOTS.lib.curve.ttypes import *
 from datetime import datetime
 import time, random, sys, re, os, ast, json, subprocess, threading, string, codecs, requests, ctypes, urllib, urllib2, urllib3, tempfile, glob, shutil, unicodedata
 
-cl = LINETCR.LINE()
-cl.login(token="Eps6viYeGUDD0GdVgDV6.9zkQQXcYKYEwrakH49bR5G.SI2heZoRS+kDt3XjmJzI0DMTVkQxn5INNCPGqzSl84I=")
+cl = PRANKBOTS.LINE()
+cl.login(token="")
 cl.loginResult()
 
 print "login success"
