@@ -38,6 +38,14 @@ wait2 = {
     'setTime':{},
     'ROM':{}
     }
+
+read = {
+    "readPoint":{},
+    "readMember":{},
+    "readTime":{},
+    "ROM":{}
+}
+
 settings = {
     "simiSimi":{}
     }
@@ -258,10 +266,10 @@ def bot(op):
                   h += "[⛓️] %s \n" % (prank.getGroup(i).name + " | 🗜️Members : " + str(len (prank.getGroup(i).members)))
                  prank.sendText(msg.to, "☆「Group List simsimi kak ini」☆\n"+ h +"🗜️Total Group : " +str(len(gid)))
             elif msg.text in ["Simi@me"]:
-                        msg.contentType = 13
-                        msg.contentMetadata = {'mid': msg.from_}
-                        cl.sendMessage(msg)
-                        cl.sendText(msg.to,"ini yah kontak kakak .. jelek amat kak kayak badut 😂")
+                 msg.contentType = 13
+                 msg.contentMetadata = {'mid': msg.from_}
+                 prank.sendMessage(msg)
+                 prank.sendText(msg.to,"ini yah kontak kakak .. jelek amat kak kayak badut 😂")
         if op.type == 55:
             try:
                 if op.param1 in wait2['readPoint']:
