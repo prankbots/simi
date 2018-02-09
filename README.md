@@ -2,9 +2,10 @@
 
 # SIMSIMI
 V2.1 editor_::
+suport auto like
 Prankbots
 # PRANKBOTS
-![Prankbots](prankbots.png)
+![Prankbots](20180210_054313.png)
 V2.1 last update::
 05/0/2018
 # CONTACT OFFICIAL
