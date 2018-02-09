@@ -6,7 +6,7 @@ from datetime import datetime
 import time, random, sys, re, os, ast, json, subprocess, threading, string, codecs, requests, ctypes, urllib, urllib2, urllib3, tempfile, glob, shutil, unicodedata
 
 prank = LINETCR.LINE()
-prank.login(token="Eps6viYeGUDD0GdVgDV6.9zkQQXcYKYEwrakH49bR5G.SI2heZoRS+kDt3XjmJzI0DMTVkQxn5INNCPGqzSl84I=")
+prank.login(token="token bot")
 prank.loginResult()
 
 print "login success"
@@ -88,6 +88,26 @@ def bot(op):
             c = Message(to=op.param1, from_=None, text=None, contentType=13)
             c.contentMetadata={'mid':'ufce863f62f40706c01fa4a3c3c4cb096'}
             prank.sendMessage(c)
+#------------------NOTIFIED_INVITE_INTO_ROOM-------------
+        if op.type == 22:
+            prank.leaveRoom(op.param1)
+#--------------------INVITE_INTO_ROOM--------------------
+        if op.type == 21:
+            prank.leaveRoom(op.param1)
+        if op.type == 26:
+            msg = op.message
+            if msg.to in settings["simiSimi"]:
+                if settings["simiSimi"][msg.to] == True:
+                    if msg.text is not None:
+                        text = msg.text
+                        r = requests.get("http://api.ntcorp.us/chatbot/v1/?text=" + text.replace(" ","+") + "&key=beta1.nt")
+                        data = r.text
+                        data = json.loads(data)
+                        if data['status'] == 200:
+                            if data['result']['result'] == 100:
+                                prank.sendText(msg.to,data['result']['response'].encode('utf-8'))
+        if op.type == 26:
+            msg = op.message
 	    if msg.contentMetadata != {}:
                 try:
                     prov = eval(msg.contentMetadata["MENTION"])["MENTIONEES"]
@@ -109,27 +129,6 @@ def bot(op):
                         prank.sendMessage(msg)
                 except:
                     pass
-#------------------NOTIFIED_INVITE_INTO_ROOM-------------
-        if op.type == 22:
-            prank.leaveRoom(op.param1)
-#--------------------INVITE_INTO_ROOM--------------------
-        if op.type == 21:
-            prank.leaveRoom(op.param1)
-        if op.type == 26:
-            msg = op.message
-            if msg.to in settings["simiSimi"]:
-                if settings["simiSimi"][msg.to] == True:
-                    if msg.text is not None:
-                        text = msg.text
-                        r = requests.get("http://api.ntcorp.us/chatbot/v1/?text=" + text.replace(" ","+") + "&key=beta1.nt")
-                        data = r.text
-                        data = json.loads(data)
-                        if data['status'] == 200:
-                            if data['result']['result'] == 100:
-                                prank.sendText(msg.to,data['result']['response'].encode('utf-8'))
-        if op.type == 26:
-            msg = op.message
-
 #----------------------------------------------------------------------------
             if wait["alwaysRead"] == True:
                 if msg.toType == 0:
