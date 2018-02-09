@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import LINETCR
-from LINETCR.lib.curve.ttypes import *
+import PRANKBOTS
+from PRANKBOTS.lib.curve.ttypes import *
 from datetime import datetime
 import time, random, sys, re, os, ast, json, subprocess, threading, string, codecs, requests, ctypes, urllib, urllib2, urllib3, tempfile, glob, shutil, unicodedata
 
-prank = LINETCR.LINE()
+prank = PRANKBOTS.LINE()
 prank.login(token="token bot")
 prank.loginResult()
 
@@ -13,7 +13,7 @@ print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-KAC=[cl]
+KAC=[prank]
 mid = prank.getProfile().mid
 Bots=[mid,"ufce863f62f40706c01fa4a3c3c4cb096"]
 admin=["ufce863f62f40706c01fa4a3c3c4cb096"]
